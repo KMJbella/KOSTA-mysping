@@ -1,0 +1,55 @@
+package com.my.repository;
+
+import java.util.List;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.my.dto.Board;
+import com.my.exception.AddException;
+import com.my.exception.FindException;
+import com.my.exception.ModifyException;
+import com.my.exception.RemoveException;
+
+@Repository
+public class BoardOracleRepository implements BoardRepository {
+
+  @Autowired
+  private SqlSessionFactory sqlSessionFactory;
+
+  @Override
+  public List<Board> selectByPage(int currentPage, int cntPerPage) throws FindException {
+    return null;
+  }
+
+  @Override
+  public List<Board> selectByWord(String word, int currentpage, int cntPerPage)
+      throws FindException {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Board selectByBoardNo(int boardNo) throws FindException {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void update(Board board) throws ModifyException {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void delete(int boardNo) throws RemoveException {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void insert(Board board) throws AddException {
+    // TODO Auto-generated method stub
+
+  }
+
+}

@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Tue Aug 02 10:53:14 KST 2022
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\kmj96\\.m2\\repository\\org\\springframework\\spring-web\\5.2.9.RELEASE\\spring-web-5.2.9.RELEASE.jar=C\:\\244\uAE30\\SW\\apache-tomcat-9.0.63\\wtpwebapps\\backctr\\WEB-INF\\lib\\spring-web-5.2.9.RELEASE.jar
+org.eclipse.jst.jee.server\:frontboard=C\:\\244\uAE30\\SW\\apache-tomcat-9.0.63\\wtpwebapps\\frontboard
+org.eclipse.jst.jee.server\:backctr=C\:\\244\uAE30\\SW\\apache-tomcat-9.0.63\\wtpwebapps\\backctr
+org.eclipse.jst.jee.server\:backboard=C\:\\244\uAE30\\SW\\apache-tomcat-9.0.63\\wtpwebapps\\backboard

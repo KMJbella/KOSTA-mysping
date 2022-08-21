@@ -1,0 +1,62 @@
+package com.my.service;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.my.dto.Board;
+import com.my.dto.PageBean;
+import com.my.exception.FindException;
+import com.my.repository.BoardRepository;
+
+public class BoardService {
+  private static final int CNT_PER_PAGE = 3; // 페이지별 보여줄 목록수
+  @Autowired
+  private BoardRepository repository;
+  //* 페이지별 게시글 목록과 페이지그룹정보를 반환한다
+  
+  public PageBean<Board> searchBoard(String word, int currentPage) throws FindException{
+  /**
+   * 검색어를 이용한 게시글 검색 목록과 페이지 그룹정보를 반환한다
+   * @param word 검색어
+   * @param currentPage 검색할 페이지
+   * @return
+   * @throws FindException
+   */
+      List<Board> list = repository.selectByWord(word, currentPage, CNT_PER_PAGE);
+      int totalCnt = repository.selectCount(word);
+      int cntPerPageGroup = 2;
+      PageBean<Board> pb1 = new PageBean<>(list, totalCnt, currentPage, cntPerPageGroup, CNT_PER_PAGE);
+      return pb1;
+  }
+
+  
+  public PageBean<Board> boardList(int currentPage) throws FindException {
+  /**
+   * 검색어를 이용한 게시글 검색 목록과 페이지 그룹정보를 반환한다
+   * 페이지별 게시글 목록과 페이지그룹정보를 반환한다
+   * @param currentPage 검색할 페이지
+   * @return
+   * @throws FindException
+   */
+
+    List<Board> list = repository.selectByPage(currentPage, CNT_PER_PAGE);
+    int totalCnt = repository.selectCount(); // 총 행수 12, 13
+
+    int cntPerPageGroup = 2; // 페이지별 보여줄 페이지수
+
+    PageBean<Board> pb1 =
+        new PageBean<>(list, totalCnt, currentPage, cntPerPageGroup, CNT_PER_PAGE);
+
+    return pb1;
+
+  }
+}
+// PageBean<Board> pb = new PageBean<>();
+// pb.setList(list);
+// pb.setCurrentPage(currentPage);
+// pb.setTotalPage(totalPage);
+// pb.setStartPage(startPage);
+// pb.setEndPage(endPage);
+// pb.setCntPerPageGroup(cntPerPageGroup);
+// return pb1;
+
+
